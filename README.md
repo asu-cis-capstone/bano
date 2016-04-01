@@ -19,3 +19,6 @@ Are you a person who prefers to use the cleanest bathroom possible when out in p
 Baño aims to provide a comprehensive database of public restrooms, viewable in map form. Users will be able to rate and review every bathroom, in order to create an effective feedback system that allows other users to discover the quality of bathrooms near them.
 
 Users will also be able to discover features of bathrooms - family restrooms, handicap friendly, number of stalls, etc. 
+
+<img src="https://github.com/asu-cis-capstone/bano/blob/master/IMG_1675.JPG" />
+<img src="https://github.com/asu-cis-capstone/bano/blob/master/IMG_1676.JPG />
