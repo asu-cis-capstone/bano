@@ -20,5 +20,6 @@ Baño aims to provide a comprehensive database of public restrooms, viewable in 
 
 Users will also be able to discover features of bathrooms - family restrooms, handicap friendly, number of stalls, etc. 
 
+<img src="https://github.com/asu-cis-capstone/bano/blob/master/IMG_1676.JPG" />
 <img src="https://github.com/asu-cis-capstone/bano/blob/master/IMG_1675.JPG" />
-<img src="https://github.com/asu-cis-capstone/bano/blob/master/IMG_1676.JPG />
+
