@@ -1,13 +1,15 @@
 #!/usr/bin/awk -f
 
 BEGIN {
-	FS=","
-	print "INSERT into Bldg (Bldg_id, Lat, Lng, Ele, r_num, l_id)"
+	FS="	"
+	OFS=","
+	print "INSERT into bano (lon, lat, elv, lid, bldg)"
 	print "VALUES "
 	}
 	
 {
-	print "("$1" , "$2", "$2", "$4", '"$5"', '"$6"' ),"
+#	print "("$1" , "$2", "$3", '"$4"', '"$5"' ),"
+	printf "\(%4.13F, %4.13F, %4.13F, '%s', '%s'\),\n", $1, $2, $3, $4, $5
 }
 
 END {
