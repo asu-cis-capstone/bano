@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ariana.tempapp.FindBanoActivity">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.example.ariana.tempapp.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="425dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="NAVIGATE"
+        android:id="@+id/btnNavigate"
+        android:background="@android:color/holo_blue_light"
+        android:layout_weight="0.29"
+        android:textSize="35dp"
+        android:layout_below="@+id/map"
+        android:layout_centerHorizontal="true"
+        android:enabled="true" />
+
+</RelativeLayout>

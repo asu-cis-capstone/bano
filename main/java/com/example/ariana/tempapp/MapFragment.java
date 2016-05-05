@@ -1,15 +1,18 @@
 package com.example.ariana.tempapp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -38,6 +41,11 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
 
     private GoogleApiClient mGoogleApiClient;
     private Location mCurrentLocation;
+    MarkerOptions marker1;
+    Marker marker2;
+    Marker marker3;
+    Marker marker4;
+    Marker marker5;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -61,6 +69,8 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
         getMap().setOnMapClickListener(this);
     }
 
+
+//find user current location
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
@@ -69,6 +79,7 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
         initCamera(mCurrentLocation);
     }
 
+    //initialize camera position to current location
     private void initCamera(Location location) {
         CameraPosition position = CameraPosition.builder()
                 .target(new LatLng(location.getLatitude(),
@@ -100,24 +111,31 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
         initCamera(mCurrentLocation);
     }
 
+
     @Override
     public void onInfoWindowClick(Marker marker) {
 
-        Toast.makeText( getActivity(), "Clicked on marker", Toast.LENGTH_SHORT ).show();
+        //Toast.makeText( getActivity(), "Navigation set", Toast.LENGTH_SHORT ).show();
+        //onMarkerNavigate();
     }
 
+    //location info when user clicks the marker
     @Override
     public boolean onMarkerClick(Marker marker) {
         marker.showInfoWindow();
+        FindBanoActivity.navigate.setEnabled(true);
         return true;
     }
 
+    //adds a marker for every click the user enters
     @Override
     public void onMapClick(LatLng latLng) {
-        MarkerOptions options = new MarkerOptions().position( latLng );
+        latLng = new LatLng(33.4116,-111.9339);
+        MarkerOptions options = new MarkerOptions().position( latLng);
         options.title( getAddressFromLatLng( latLng ) );
 
-        options.icon( BitmapDescriptorFactory.defaultMarker() );
+        options.icon( BitmapDescriptorFactory.fromBitmap(
+                BitmapFactory.decodeResource(getResources(), R.mipmap.marker ) ) );
         getMap().addMarker( options );
     }
 
@@ -128,7 +146,7 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
         options.title( getAddressFromLatLng(latLng) );
 
         options.icon( BitmapDescriptorFactory.fromBitmap(
-                BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher ) ) );
+                BitmapFactory.decodeResource(getResources(), R.drawable.marker ) ) );
 
         getMap().addMarker(options);
     }
